@@ -1,0 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base { body { @apply min-h-screen bg-ink text-slate-100 antialiased; } button { @apply transition disabled:cursor-not-allowed disabled:opacity-40; } }
+.scanline { background-image: linear-gradient(rgba(54,230,255,.035) 1px, transparent 1px); background-size: 100% 4px; }

@@ -1,0 +1,3 @@
+"use client";
+import { useState } from "react";
+export default function Home() { const [code, setCode] = useState(""); return <main className="mx-auto flex min-h-screen max-w-md flex-col justify-center gap-5 p-6"><p className="text-xs font-bold tracking-[.3em] text-cyan">THE OUTBREAK PROTOCOL</p><h1 className="text-4xl font-black">Contain the infection.</h1><input className="rounded border border-slate-600 bg-panel p-4 uppercase" placeholder="ROOM CODE" value={code} onChange={e => setCode(e.target.value.toUpperCase())}/><a className="rounded bg-cyan p-4 text-center font-bold text-ink" href={`/play/${code || "DEMO"}`}>ENTER AS PLAYER</a><p className="text-sm text-slate-400">Game master? Open <code>/host/ROOMCODE</code> on the control device.</p></main>; }
