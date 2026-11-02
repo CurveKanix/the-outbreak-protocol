@@ -17,11 +17,7 @@ supabase/migrations/      schema, RLS, and authoritative RPCs
 ## Supabase setup
 
 1. Create a Supabase project, then run `supabase/migrations/001_outbreak_protocol.sql` in **SQL Editor**.
-2. Create a room (run once; choose a long secret Host key):
-   ```sql
-   insert into public.rooms(code, host_key_hash)
-   values ('MED36', crypt('replace-with-a-long-random-host-key', gen_salt('bf')));
-   ```
+2. Run both migration files in order. Then create a room exclusively from `/host`; the UI produces an unguessable code, a one-time Host key, and a player QR code.
 3. In **Database → Replication**, add `rooms`, `players`, and `intents` to the `supabase_realtime` publication. In **Realtime settings**, keep Broadcast and Presence enabled.
 4. Copy project URL and anon key into `.env.local`; add the service-role key only to Vercel/server environment variables. Never prefix it with `NEXT_PUBLIC_`.
 5. `npm install && npm run dev`; open `/host/MED36` on the control device and `/play/MED36` on player phones.
